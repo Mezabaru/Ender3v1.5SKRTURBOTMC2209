@@ -1,3 +1,6 @@
+If youre using this, Please set PID Values, and esteps to default and calibrate or enter yours as mine are custom.
+I'm using X_STALL_SENSITIVITY and Y_STALL_SENSITIVITY that work for me, they may  not work for you.
+
 # Marlin 3D Printer Firmware
 
 ![GitHub](https://img.shields.io/github/license/marlinfirmware/marlin.svg)
