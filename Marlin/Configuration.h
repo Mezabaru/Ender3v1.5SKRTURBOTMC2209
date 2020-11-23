@@ -533,9 +533,9 @@
 
   // 120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   // from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
-  #define DEFAULT_bedKp 10.00
-  #define DEFAULT_bedKi .023
-  #define DEFAULT_bedKd 305.4
+  #define DEFAULT_bedKp 185.89
+  #define DEFAULT_bedKi 34.52
+  #define DEFAULT_bedKd 667.42 
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -613,24 +613,24 @@
 // Specify here all the endstop connectors that are connected to any endstop or probe.
 // Almost all printers will be using one per axis. Probes will use one or more of the
 // extra connectors. Leave undefined any used for non-endstop and non-probe purposes.
-//#define USE_XMIN_PLUG
-//#define USE_YMIN_PLUG
-//#define USE_ZMIN_PLUG
-#define USE_XMAX_PLUG
-#define USE_YMAX_PLUG
-#define USE_ZMAX_PLUG
+#define USE_XMIN_PLUG
+#define USE_YMIN_PLUG
+#define USE_ZMIN_PLUG
+//#define USE_XMAX_PLUG
+//#define USE_YMAX_PLUG
+//#define USE_ZMAX_PLUG
 
 // Enable pullup for all endstops to prevent a floating state
 #define ENDSTOPPULLUPS
 #if DISABLED(ENDSTOPPULLUPS)
   // Disable ENDSTOPPULLUPS to set pullups individually
-  #define ENDSTOPPULLUP_XMAX
-  #define ENDSTOPPULLUP_YMAX
-  #define ENDSTOPPULLUP_ZMAX
-  #define ENDSTOPPULLUP_XMIN
-  #define ENDSTOPPULLUP_YMIN
-  #define ENDSTOPPULLUP_ZMIN
-  #define ENDSTOPPULLUP_ZMIN_PROBE
+  //#define ENDSTOPPULLUP_XMAX
+  //#define ENDSTOPPULLUP_YMAX
+  //#define ENDSTOPPULLUP_ZMAX
+  //#define ENDSTOPPULLUP_XMIN
+  //#define ENDSTOPPULLUP_YMIN
+  //#define ENDSTOPPULLUP_ZMIN
+  //#define ENDSTOPPULLUP_ZMIN_PROBE
 #endif
 
 // Enable pulldown for all endstops to prevent a floating state
@@ -986,10 +986,10 @@
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 15
+#define PROBING_MARGIN 10
 
 // X and Y axis travel speed (mm/min) between probes
-#define XY_PROBE_SPEED (40*60)
+#define XY_PROBE_SPEED (30*60)
 
 // Feedrate (mm/min) for the first approach when double-probing (MULTIPLE_PROBING == 2)
 #define Z_PROBE_SPEED_FAST HOMING_FEEDRATE_Z
@@ -1111,8 +1111,8 @@
 
 // Direction of endstops when homing; 1=MAX, -1=MIN
 // :[-1,1]
-#define X_HOME_DIR 1
-#define Y_HOME_DIR 1
+#define X_HOME_DIR -1
+#define Y_HOME_DIR -1
 #define Z_HOME_DIR -1
 
 // @section machine
@@ -1317,7 +1317,7 @@
 #if EITHER(AUTO_BED_LEVELING_LINEAR, AUTO_BED_LEVELING_BILINEAR)
 
   // Set the number of grid points per dimension.
-  #define GRID_MAX_POINTS_X 5
+  #define GRID_MAX_POINTS_X 9
   #define GRID_MAX_POINTS_Y GRID_MAX_POINTS_X
 
   // Probe along the Y axis, advancing X after each column
